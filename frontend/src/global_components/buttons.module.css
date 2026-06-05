@@ -1,0 +1,16 @@
+.button_primary {
+    background : var(--color-accent-red);
+    height : 70px;
+    width : 100%;
+    color : var(--color-text-primary);
+    font-size : var(--font-size-3xl);
+    border-radius : var(--radius-xl);
+}
+
+.button_primary:hover {
+    transform : translateY(-5%);
+}
+
+.button_primary:active {
+    transform : translateY(-5%) scale(0.98);
+}

@@ -1,8 +1,17 @@
+export function ParameterSelectionPill() {
+ // step number + main content
+}
 
-export function ParameterSection() {
+function StepCircle() {
 
 }
 
-export function ParameterSelectionPill() {
+// --------------------------
+// Main content for each pill
+function MatchupSelection() {
+
+}
+
+function GameDateSelection() {
 
 }

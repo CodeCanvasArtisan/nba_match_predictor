@@ -1,0 +1,65 @@
+/* 
+--------------------------------
+WHOLE PAGE STYLES --------------
+*/
+body {background: var(--navy-primary); overflow-x: hidden;}
+.page_container {
+    width: 100vw;
+    height : fit-content;
+    
+    min-height: 100vh;
+
+    
+
+    display: flex; justify-content: flex-start; align-items: center; flex-direction : column;
+
+    gap : 20px;
+    
+}
+
+.page_container > * {
+    padding : 10px;
+    display: flex; justify-content: center; align-items: center;
+    border : solid red 3px;
+    width : 80%;
+}
+
+/* 
+--------------------------------
+HEADER -------------------------
+*/
+.page_header {
+    height : 30vh;
+    display: flex; justify-content: center; align-items: center; flex-direction : column; gap : 20px;
+
+    max-width : 60%;
+    
+}
+.main_heading {
+    height : 60%;
+    display: flex; justify-content: center; align-items: center; gap : 30px;
+    font-size : var(--font-size-2xl)
+}
+.main_heading > img {
+    height : 100%;
+}
+
+.subheading {
+    height : 40%;
+    font-size : var(--font-size-xl);
+    font-weight : var(--font-weight-medium);
+
+}
+
+/* 
+--------------------------------
+SECTION CONTAINERS --------------
+*/
+.parameters_section {
+    height : 50vh;
+}
+
+.submit_section {
+    width : 40%;
+    height : 10vh;
+}
