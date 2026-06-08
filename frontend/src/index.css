@@ -37,7 +37,7 @@
 
   /* Inputs (light style, used inside cards) */
   --color-input-bg:          #EEF1FB;
-  --color-input-border:      #D4D9EE;
+  --color-input-border:      #D4D9EE80;
   --color-input-border-focus:#3461D1;
 
   /* Dividers / borders */
@@ -173,6 +173,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  scrollbar-width : thin;
+  scrollbar-color: #888888 #f1f1f1; 
 }
 
 

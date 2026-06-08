@@ -6,6 +6,7 @@ import { ButtonPrimary } from "../global_components/Buttons";
 import { Footer } from "./Footer";
 import { ParameterSelectionPill } from "./parameter_selection/ParameterSection";
 import { MatchupSelection } from "./parameter_selection/MatchupSelection";
+import { GameDateSelection } from "./parameter_selection/GameDateSelection";
 
 export function MainPage() {
     return (
@@ -22,7 +23,7 @@ export function MainPage() {
 
             <section className={styles.parameters_section}>
                 <ParameterSelectionPill paramName="Matchup" stepNo={1} mainContent={<MatchupSelection/>}/>
-                <ParameterSelectionPill paramName="Game date" stepNo={2}/>
+                <ParameterSelectionPill paramName="Game date" stepNo={2} mainContent={<GameDateSelection/>}/>
             </section>
 
             <section className={styles.submit_section}>
