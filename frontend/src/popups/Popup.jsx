@@ -5,7 +5,7 @@ export function Popup({mainContent, headingCopy, isOpen, close}) {
         <div className={`${!isOpen && styles.inactive} ${styles.popup_wrapper}`}>
             <div className={styles.popup_container}>
                 <CloseButton close={close}/>
-                <Heading contents={headingCopy}/>
+                {headingCopy && <Heading contents={headingCopy}/>}
                 {mainContent}
             </div>
         </div>

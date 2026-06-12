@@ -59,10 +59,11 @@ export function getTeamFromAbbrev(abbrev) {
 }
 
 export const shiftingCopy = [
-  "Looking at season win percentages",
-  "Fair bit of flopping spotted",
-  "Scanning head-to-head history",
-  "Preemptively blaming refs",
+  "Looking at season win percentages ...",
+  "Fair bit of flopping spotted 🤦‍♂️",
+  "Comparing all-star privilege ...",
+  "Scanning head-to-head history ...",
+  "Preemptively blaming the refs 🙊",
   "Identifying home court advantage",
-  "Pretending to understand coaching decisions ...",
+  "Pretending to understand coaching decisions 🤪",
 ]

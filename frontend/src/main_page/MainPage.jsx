@@ -12,6 +12,7 @@ import { MatchupSelection } from "./parameter_selection/MatchupSelection";
 import { GameDateSelection } from "./parameter_selection/GameDateSelection";
 import { BlurOverlay, Popup } from "../popups/Popup";
 import { TeamSelection } from "../popups/TeamSelection";
+import { LoadingPrediction } from "../popups/LoadingPrediction";
 
 export function MainPage() {
 
@@ -21,9 +22,23 @@ export function MainPage() {
 
     const [popupsOpenState, setPopupsOpenState] = useState({
         homeTeam : false,
-        awayTeam : false
+        awayTeam : false,
+        loadingPrediction : false
     })
-   
+
+    const predict = () => {
+        setPopupsOpenState(curr => ({...curr, loadingPrediction : true}))
+
+        
+        //setTimeout(() => "/* fetch request */" , 3000) // keep popup onscreen a bit so they can see it
+
+
+        //.then() - handle result
+        // .finally() - change popup 
+
+        // mimic fetch for now
+        setTimeout(() => setPopupsOpenState(curr => ({...curr, loadingPrediction : false})), 3000); 
+    }   
 
     return (
         <div className={styles.page_container}>
@@ -62,6 +77,7 @@ export function MainPage() {
                         ${awayTeam} @ ${homeTeam}, 
                         ${daysFromNow == 0 ? "today" : daysFromNow == 1 ? "tomorrow" : `in ${daysFromNow} days' time`}
                     `)
+                    predict()
                 }}
                 copy="Play it out"/>
             </section>
@@ -83,6 +99,13 @@ export function MainPage() {
                 isOpen={popupsOpenState.homeTeam}
                 close={() => setPopupsOpenState(curr => ({...curr, homeTeam: false}))}
                 
+            />
+            <Popup
+                mainContent={<LoadingPrediction/>}
+                isOpen={popupsOpenState.loadingPrediction}
+                close={() => {
+                    if(!confirm("Cancel prediction ?")) return
+                    setPopupsOpenState(curr => ({...curr, loadingPrediction: false}))}}
             />
             <BlurOverlay onClick={() => setPopupsOpenState({homeTeam: false, awayTeam: false})}  isPopupOpen={Object.values(popupsOpenState).some(value => value === true)}/>
         </div>
