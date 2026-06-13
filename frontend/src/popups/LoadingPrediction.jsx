@@ -29,7 +29,7 @@ export function LoadingPrediction({isActive}) {
 
             setTimeout(() => setIsCopyChanging(false), 200);
 
-        }, 5000)
+        }, 3000)
 
         return () => clearInterval(copyChangeTimer)
     }, [])

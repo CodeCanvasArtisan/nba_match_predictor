@@ -21,6 +21,16 @@
     height : 3cqi !important;
 }
 
+.button_primary:disabled {
+    transform : scale(0.9);
+    background : grey;
+    border : solid var(--color-accent-red) 2px;
+}
+.button_primary:disabled:hover {
+    transform : scale(0.9);
+    cursor : disabled;
+}
+
 /* Action link */
 .action_link {
     font-size : var(--font-size-md);

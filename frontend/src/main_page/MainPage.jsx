@@ -26,7 +26,7 @@ export function MainPage() {
         winningTeam : "LAL",
         winPercent : 67
     })
-    
+
     const [popupsOpenState, setPopupsOpenState] = useState({
         homeTeam : false,
         awayTeam : false,
@@ -81,8 +81,8 @@ export function MainPage() {
 
             <section className={styles.submit_section}>
                 <ButtonPrimary onClick={() => {
-                    if(!homeTeam) alert("Please choose a home team");
-                    else if (!awayTeam) alert("Please choose an away team");
+                    if(!homeTeam) {alert("Please choose a home team"); return;}
+                    else if (!awayTeam) {alert("Please choose an away team"); return;}
 
                     console.log(`Matchup : 
                         ${awayTeam} @ ${homeTeam}, 
@@ -127,10 +127,7 @@ export function MainPage() {
                     </>}
                 isOpen={popupsOpenState.loadingPrediction || popupsOpenState.resultsDisplay}
                 close={popupsOpenState.loadingPrediction ? 
-                    () => {
-                        if(!confirm("Cancel prediction ?")) return
-                        setPopupsOpenState(curr => ({...curr, loadingPrediction: false}))
-                    }
+                    false
                     :
                     () => setPopupsOpenState(curr => ({...curr, loadingPrediction: false, resultsDisplay : false}))
                 }
