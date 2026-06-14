@@ -16,6 +16,8 @@ import { LoadingPrediction } from "../popups/LoadingPrediction";
 import { ResultDisplay } from "../popups/ResultDisplay";
 import { getTeamFromAbbrev } from "../constants";
 
+import {fetchPrediction} from "/src/api.js";
+
 export function MainPage() {
 
     const [daysFromNow, setDaysFromNow] = useState(1);
@@ -34,19 +36,34 @@ export function MainPage() {
         resultsDisplay : false
     })
 
-    const predict = () => {
-        setPopupsOpenState(curr => ({...curr, loadingPrediction : true, resultsDisplay : false}))
-
+    const predict = async () => {
+        setPopupsOpenState(curr => ({ ...curr, loadingPrediction: true, resultsDisplay: false }));
         
-        //setTimeout(() => "/* fetch request */" , 3000) // keep popup onscreen a bit so they can see it
+        try {
+            const gameDate = new Date();
+            gameDate.setDate(gameDate.getDate() + daysFromNow);
+            const dateStr = gameDate.toISOString().split("T")[0]; // "2026-06-15"
 
+            const delay = ms => new Promise(res => setTimeout(res, ms));
+            await delay(2000);
+            const result = await fetchPrediction(homeTeam, awayTeam, dateStr);
 
-        //.then() - handle result
-        // .finally() - change popup and set winInfo state variable
+            setWinInfo({
+                winningTeam: result.home_win_probability >= 0.5 ? homeTeam : awayTeam,
+                winPercent: Math.round(
+                    result.home_win_probability >= 0.5
+                        ? result.home_win_probability * 100
+                        : (1 - result.home_win_probability) * 100
+                ),
+            });
 
-        // mimic fetch for now
-        setTimeout(() => setPopupsOpenState(curr => ({...curr, loadingPrediction : false, resultsDisplay : true})), 3000); 
-    }   
+            setPopupsOpenState(curr => ({ ...curr, loadingPrediction: false, resultsDisplay: true }));
+        } catch (err) {
+            console.error(err);
+            setPopupsOpenState(curr => ({ ...curr, loadingPrediction: false }));
+            alert("Something went wrong. Maybe try again later.");
+        }
+    };
 
     return (
         <>
