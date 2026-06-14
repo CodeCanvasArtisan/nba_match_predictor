@@ -82,11 +82,12 @@ MATCHUP SELECTION --------------
     display: flex; justify-content: flex-start; align-items: center;
     gap : 20px;
     border : none; outline : none;
-    background : linear-gradient(#DDDDDD, #E6E6E6, to right);
+    background : linear-gradient(to right, #DDDDDD, #ffcbcb);
     border-radius : 20px;
     padding : 5px 10px;
 
     font-size: var(--font-size-xl);
+    font-weight : var(--font-weight-extrabold);
 
 }   
 .team_selection_container img {
