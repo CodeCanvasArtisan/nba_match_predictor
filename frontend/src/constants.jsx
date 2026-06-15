@@ -33,7 +33,7 @@ export const nbaTeams = [
   // Northwest
   { fullName: "Denver Nuggets",         shortenedName: "Nuggets",       abbreviation: "DEN", accentColour: "#0E2240", secondaryColour: "#FEC524" },
   { fullName: "Minnesota Timberwolves", shortenedName: "Timberwolves",  abbreviation: "MIN", accentColour: "#0C2340", secondaryColour: "#00d22a" },
-  { fullName: "Oklahoma City Thunder",  shortenedName: "Thunder",       abbreviation: "OKC", accentColour: "#007AC1", secondaryColour: "#EF3B24" },
+  { fullName: "Oklahoma City Thunder",  shortenedName: "Thunder",       abbreviation: "OKC", accentColour: "#006097", secondaryColour: "#EF3B24" },
   { fullName: "Portland Trail Blazers", shortenedName: "Trail Blazers", abbreviation: "POR", accentColour: "#E03A3E", secondaryColour: "#000000" },
   { fullName: "Utah Jazz",              shortenedName: "Jazz",          abbreviation: "UTA", accentColour: "#002B5C", secondaryColour: "#F9A01B" },
 
