@@ -45,12 +45,14 @@ def load_model():
 
 def startup():
 
-    cache_path = BASE_DIR / '/game_logs.pkl'
+    BACKEND_DIR = BASE_DIR.parent
+    cache_path = BACKEND_DIR / 'game_logs.pkl'
     
 
     if cache_path.is_file():
         game_logs = load_game_logs(cache_path)
     else:
+        print("File not found! Attempting live fallback fetch...")
         game_logs_2425 = Data.load_all_game_logs('2024-25')
         game_logs_2526 = Data.load_all_game_logs('2025-26')
 
