@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from slowapi import Limiter, _rate_limit_exceeded_handler
@@ -10,6 +12,7 @@ from pydantic import BaseModel
 
 from datetime import date
 import pandas as pd
+
 
 from contextlib import asynccontextmanager
 
@@ -32,11 +35,15 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+raw_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173")
+allowed_origins = [origin.strip() for origin in raw_origins.split(",")]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # add prod URL when you have it
+    allow_origins=allowed_origins,  # add prod URL when you have it
     allow_methods=["*"],
     allow_headers=["*"],
+
 )
 limiter = Limiter(key_func=get_remote_address)
 app.state.limiter = limiter
