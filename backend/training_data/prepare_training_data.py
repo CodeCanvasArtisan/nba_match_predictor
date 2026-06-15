@@ -11,7 +11,7 @@ def export_training_data():
     
     training_data = pd.concat([data_2024_25, data_2025_26], ignore_index=True)
     training_data = training_data.dropna()
-    training_data.to_csv('backend/training_data/training_data.csv', index=False)
+    training_data.to_csv('/training_data/training_data.csv', index=False)
 
 if __name__ == "__main__":
     export_training_data()

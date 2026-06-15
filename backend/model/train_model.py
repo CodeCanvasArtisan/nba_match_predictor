@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 def format_raw_training_data():
     """ Extracts data from training data file and returns model-formatted datatypes"""
 
-    data = pd.read_csv("backend/training_data/training_data.csv")
+    data = pd.read_csv("/training_data/training_data.csv")
     # print(data.shape)
     # print(data.head(2))
 
@@ -172,13 +172,13 @@ import pickle
 
 def save_model(model, scaler, team_to_index):
     try:
-        torch.save(model.state_dict(), 'backend/backend/model/nba_match_predictor_model.pt')
+        torch.save(model.state_dict(), '/model/nba_match_predictor_model.pt')
         print("model saved")
 
-        with open('backend/model/scaler.pkl', 'wb') as f:
+        with open('/model/scaler.pkl', 'wb') as f:
             pickle.dump(scaler, f)
         
-        with open('backend/model/team_to_index.pkl', 'wb') as f:
+        with open('/model/team_to_index.pkl', 'wb') as f:
             pickle.dump(team_to_index, f)
 
     except Exception as e:

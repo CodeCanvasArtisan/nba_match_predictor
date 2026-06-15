@@ -23,14 +23,14 @@ def load_game_logs(path):
 
 
 def load_model():
-    with open('backend/model/scaler.pkl', 'rb') as f:
+    with open('/model/scaler.pkl', 'rb') as f:
         scaler = pickle.load(f)
 
-    with open('backend/model/team_to_index.pkl', 'rb') as f:
+    with open('/model/team_to_index.pkl', 'rb') as f:
         team_to_index = pickle.load(f)
 
     model = NBAPredictorModel()
-    model.load_state_dict(torch.load('backend/model/nba_match_predictor_model.pt'))
+    model.load_state_dict(torch.load('/model/nba_match_predictor_model.pt'))
     model.eval()
 
     print("good to go")
@@ -39,7 +39,7 @@ def load_model():
 
 def startup():
 
-    cache_path = Path('backend/game_logs.pkl')
+    cache_path = Path('/game_logs.pkl')
 
     if cache_path.is_file():
         game_logs = load_game_logs(cache_path)
