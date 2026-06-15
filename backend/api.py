@@ -38,6 +38,10 @@ app = FastAPI(lifespan=lifespan)
 raw_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173")
 allowed_origins = [origin.strip() for origin in raw_origins.split(",")]
 
+print("--- CRITICAL CORS DEBUG ---")
+print("Loaded origins from env:", allowed_origins)
+print("---------------------------")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,  # add prod URL when you have it
