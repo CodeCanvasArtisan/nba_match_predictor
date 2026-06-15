@@ -103,7 +103,7 @@ export function MainPage() {
                     if(!homeTeam) {alert("Please choose a home team"); return;}
                     else if (!awayTeam) {alert("Please choose an away team"); return;}
 
-                    console.log(`Matchup : 
+                    (`Matchup : 
                         ${awayTeam} @ ${homeTeam}, 
                         ${daysFromNow == 0 ? "today" : daysFromNow == 1 ? "tomorrow" : `in ${daysFromNow} days' time`}
                     `)

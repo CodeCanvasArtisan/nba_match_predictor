@@ -36,7 +36,7 @@ import * as NBALogos from "react-nba-logos"
 export function TeamSelectionArea({teamObj, isHome, onClick}) {
 
     const Logo = teamObj ? (NBALogos[teamObj.abbreviation] ?? null) : null;
-    console.log("team -> ", teamObj);
+    ("team -> ", teamObj);
     return (
         <button 
             onClick={onClick}

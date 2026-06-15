@@ -53,14 +53,14 @@ limiter = Limiter(key_func=get_remote_address)
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-class Predictionpayload(BaseModel):
+class PredictionPayload(BaseModel):
     home_team_abbrev: str
     away_team_abbrev: str
     date: date
 
 @app.post("/prediction")
 @limiter.limit("30/minute;200/hour")
-def create_prediction(request: Request, payload : Predictionpayload):
+def create_prediction(request: Request, payload : PredictionPayload):
     try:
         # convert appreviation to team id
         home_team_id = abbrev_to_team_id(payload.home_team_abbrev)
